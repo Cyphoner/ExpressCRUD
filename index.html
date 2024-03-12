@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pokemon API Documentation</title>
+</head>
+<body>
+
+<h1>Pokemon API Documentation</h1>
+
+<h2>Base URL:</h2>
+<p>https://pokemonapilab220240312105041.azurewebsites.net</p>
+
+<h2>Endpoints:</h2>
+
+<h3>Get All Pokemons</h3>
+<p>GET /pokemons</p>
+<p><strong>Description:</strong> Retrieves a list of all pokemons.</p>
+<p><strong>Response:</strong></p>
+<pre>
+[
+    {
+        "id": 1,
+        "name": "Squirtle",
+        "type": "water"
+    }
+]
+</pre>
+
+<h3>Get a Pokemon by ID</h3>
+<p>GET /pokemon/:id</p>
+<p><strong>Description:</strong> Retrieves a pokemon by its ID.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+    <li><code>id</code> (integer) - The ID of the pokemon.</li>
+</ul>
+<p><strong>Response:</strong></p>
+<pre>
+{
+    "id": 1,
+    "name": "Squirtle",
+    "type": "water"
+}
+</pre>
+
+<h3>Add a New Pokemon</h3>
+<p>POST /pokemon/:name/:type/:id</p>
+<p><strong>Description:</strong> Adds a new pokemon to the database.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+    <li><code>name</code> (string) - The name of the pokemon.</li>
+    <li><code>type</code> (string) - The type of the pokemon.</li>
+    <li><code>id</code> (integer) - The ID of the pokemon.</li>
+</ul>
+<p><strong>Response:</strong></p>
+<pre>
+{
+    "id": 2,
+    "name": "Bulbasaur",
+    "type": "grass"
+}
+</pre>
+
+<h3>Update a Pokemon</h3>
+<p>PUT /pokemon/:id</p>
+<p><strong>Description:</strong> Updates an existing pokemon.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+    <li><code>id</code> (integer) - The ID of the pokemon.</li>
+</ul>
+<p><strong>Request Body:</strong></p>
+<pre>
+{
+    "name": "Squirtle",
+    "type": "water"
+}
+</pre>
+<p><strong>Response:</strong></p>
+<pre>
+{
+    "id": 1,
+    "name": "Squirtle",
+    "type": "water"
+}
+</pre>
+
+<h3>Delete a Pokemon</h3>
+<p>DELETE /pokemon/:id</p>
+<p><strong>Description:</strong> Deletes a pokemon.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+    <li><code>id</code> (integer) - The ID of the pokemon.</li>
+</ul>
+<p><strong>Response:</strong></p>
+<pre>
+{
+    "message": "Pokemon deleted successfully."
+}
+</pre>
+
+<h2>Error Responses:</h2>
+<ul>
+    <li><strong>400 Bad Request:</strong> Invalid parameters or request body.</li>
+    <li><strong>404 Not Found:</strong> The requested pokemon does not exist.</li>
+    <li><strong>500 Internal Server Error:</strong> Server encountered an unexpected condition.</li>
+</ul>
+
+<h2>Note:</h2>
+<ul>
+    <li>Replace <code>:id</code> with the actual ID of the pokemon when making requests.</li>
+    <li>Ensure proper error handling for all endpoints.</li>
+</ul>
+
+</body>
+</html>
